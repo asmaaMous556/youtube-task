@@ -12,35 +12,40 @@ import { Observable, observable, Subscription } from 'rxjs';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })
-export class DetailsComponent implements OnInit , OnDestroy{
-id:string='';
-VideoUrl:string='https://www.youtube.com/embed/';
-safeUrl:SafeResourceUrl='';
-video:any;
-  paramsSubscripe: any;
-  
+export class DetailsComponent implements OnInit, OnDestroy {
+  id: string = '';
+  VideoUrl: string = 'https://www.youtube.com/embed/';
+  safeUrl: SafeResourceUrl = '';
+  video!: video;
+  paramsSubscripe: Subscription = new Subscription;
+  videoDetailsSub: Subscription = new Subscription;
+
 
   constructor(private route: ActivatedRoute,
-    private youtubeService:YoutubeService, private _sanitizer: DomSanitizer, private savevideo : SaveVideoService) { }
+    private youtubeService: YoutubeService, private _sanitizer: DomSanitizer, private savevideo: SaveVideoService) { }
   ngOnDestroy(): void {
-    this.paramsSubscripe.unsubscripe();
-   
+    this.paramsSubscripe.unsubscribe();
+    this.videoDetailsSub.unsubscribe
+
   }
 
   ngOnInit(): void {
-this.paramsSubscripe= this.route.params.subscribe(params=>{
-   this.id=params.id;
-   this.VideoUrl=this.VideoUrl+this.id;
-   this.safeUrl=this._sanitizer.bypassSecurityTrustResourceUrl(this.VideoUrl)
-   
- this.youtubeService.getSingleVideo(this.id).subscribe((data: any)=>{
-   this.video=data.items
-   console.log(this.video)
- })
- })
+    this.paramsSubscripe = this.route.params.subscribe(params => {
+      this.id = params.id;
+      this.VideoUrl = this.VideoUrl + this.id;
+      this.safeUrl = this._sanitizer.bypassSecurityTrustResourceUrl(this.VideoUrl),
+      
+
+      this.videoDetailsSub = this.youtubeService.getSingleVideo(this.id).subscribe((data: any) => {
+        this.video = data.items
+        console.log(this.video)
+      },error=>{
+       console.log(error)
+      })
+    },error=>{console.log(error)})
   }
 
-  saveVideo(id:string){
+  saveVideo(id: string) {
     this.savevideo.saveVideoToFvList(id);
   }
 

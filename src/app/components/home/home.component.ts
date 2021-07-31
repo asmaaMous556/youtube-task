@@ -27,7 +27,7 @@ total:number=0;
       console.log(this.items);
       this.filteredItems=this.items
       this.filterVideo(this.items);
-    });
+    },error=>{console.log(error)});
 
 
     
