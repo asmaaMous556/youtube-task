@@ -1,0 +1,53 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-9"></div>
+    <div class="col-3 my-3">
+      <div class="d-flex justify-content-end align-items-center">
+        <input type="search" class="form-control rounded-pill " id="search-input"
+          placeholder="Search channels by video title" 
+          [formControl]="value" autocomplete="off">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+
+      <table class="table">
+        <thead>
+          <tr class="my-5">
+            <th scope="col">#</th>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col"> Published Date</th>
+            <th scope="col"></th>
+
+
+          </tr>
+        </thead>
+        <tbody class="">
+          <tr *ngFor="let item of filteredItems | slice: (page-1) * pageSize : page * pageSize; index as i">
+            <th scope="row">{{i+1}}</th>
+            <td>
+              <img [src]="item.snippet.thumbnails.default.url" alt="">
+            </td>
+            <td class="my-auto">{{item.snippet.localized.title}}</td>
+            <td>{{item.snippet.publishedAt | date}}</td>
+            <td><button class="details-btn btn btn-block btn btn-primary border-0" [routerLink]= "['/details',item.id]">
+              Details</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6"></div>
+  <div class="col-6">
+    <div class="">
+      <ngb-pagination
+      [(page)]="page"
+      [pageSize]="pageSize"
+      [collectionSize]="total"></ngb-pagination>
+    </div>
+  </div>
+</div>
