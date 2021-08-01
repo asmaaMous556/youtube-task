@@ -24,7 +24,6 @@ total:number=0;
     this.youtube.getAllVideos().subscribe(data=>{
     this.items=data.items;
     this.total=this.items.length;
-      console.log(this.items);
       this.filteredItems=this.items
       this.filterVideo(this.items);
     },error=>{console.log(error)});
