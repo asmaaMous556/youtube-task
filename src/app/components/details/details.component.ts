@@ -25,6 +25,8 @@ export class DetailsComponent implements OnInit, OnDestroy {
   videoDetailsSub: Subscription = new Subscription;
   faStar=faStar;
   checked:boolean=false;
+  currentRate:number=6;
+  
 
 
   constructor(private route: ActivatedRoute,
@@ -56,9 +58,9 @@ export class DetailsComponent implements OnInit, OnDestroy {
     this.savevideo.saveVideoToFvList(id);
   }
  
-  checkedStar(){
-   this.checked=!this.checked;
-   console.log(this.checked)
-  }
+  // checkedStar(){
+  //  this.checked=!this.checked;
+  //  console.log(this.checked)
+  // }
 
 }

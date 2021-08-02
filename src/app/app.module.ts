@@ -9,7 +9,11 @@ import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { YouTubePlayerModule} from '@angular/youtube-player';
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome'
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {RatingModule} from 'primeng/rating';
+import {FormsModule} from '@angular/forms'
+import {NgbRatingModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 
 
@@ -26,8 +30,11 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome'
     HttpClientModule,
     ReactiveFormsModule,
     NgbModule,
+    FormsModule,
     YouTubePlayerModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    RatingModule,
+    NgbRatingModule
   ],
   providers: [
     
