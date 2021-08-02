@@ -5,8 +5,9 @@ import { YoutubeService } from 'src/app/services/youtube.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { video } from 'src/app/models/video';
 import { SaveVideoService } from 'src/app/services/save-video.service';
-import { Observable, observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import {parse, end, toSeconds, pattern} from 'iso8601-duration';
+import {faStar}  from '@fortawesome/free-solid-svg-icons';
  
 
 @Component({
@@ -22,6 +23,8 @@ export class DetailsComponent implements OnInit, OnDestroy {
   duration:any;
   paramsSubscripe: Subscription = new Subscription;
   videoDetailsSub: Subscription = new Subscription;
+  faStar=faStar;
+  checked:boolean=false;
 
 
   constructor(private route: ActivatedRoute,
@@ -53,5 +56,9 @@ export class DetailsComponent implements OnInit, OnDestroy {
     this.savevideo.saveVideoToFvList(id);
   }
  
+  checkedStar(){
+   this.checked=!this.checked;
+   console.log(this.checked)
+  }
 
 }

@@ -9,6 +9,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { YouTubePlayerModule} from '@angular/youtube-player';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome'
 
 
 
@@ -26,6 +27,7 @@ import { YouTubePlayerModule} from '@angular/youtube-player';
     ReactiveFormsModule,
     NgbModule,
     YouTubePlayerModule,
+    FontAwesomeModule
   ],
   providers: [
     
