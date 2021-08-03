@@ -58,9 +58,9 @@ export class DetailsComponent implements OnInit, OnDestroy {
     this.savevideo.saveVideoToFvList(id);
   }
  
-  // checkedStar(){
-  //  this.checked=!this.checked;
-  //  console.log(this.checked)
-  // }
+  checkedStar(){
+   this.checked=!this.checked;
+   console.log(this.checked)
+  }
 
 }
