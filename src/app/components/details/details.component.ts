@@ -3,7 +3,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { YoutubeService } from 'src/app/services/youtube.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { video } from 'src/app/models/video';
 import { SaveVideoService } from 'src/app/services/save-video.service';
 import { Subscription } from 'rxjs';
 import {parse, end, toSeconds, pattern} from 'iso8601-duration';
