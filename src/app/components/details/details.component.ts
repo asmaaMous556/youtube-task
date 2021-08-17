@@ -24,7 +24,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   videoDetailsSub: Subscription = new Subscription;
   faStar=faStar;
   checked:boolean=false;
-  currentRate:number=6;
+  currentRate!:number;
   
 
 
@@ -50,16 +50,17 @@ export class DetailsComponent implements OnInit, OnDestroy {
       },error=>{
        console.log(error)
       })
-    },error=>{console.log(error)})
+    },error=>{console.log(error)});
+    
   }
 
   saveVideo(id: string) {
     this.savevideo.saveVideoToFvList(id);
   }
  
-  checkedStar(){
-   this.checked=!this.checked;
-   console.log(this.checked)
-  }
-
+ getRate(rate:any){
+  console.log(rate);
+  var rate =(rate).toString as any
+  localStorage.setItem('rate',rate);
+ }
 }

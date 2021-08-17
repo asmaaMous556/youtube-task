@@ -13,3 +13,13 @@ $red:	rgb(255, 0, 0);
 .unchecked{
     color:#ffffff;
 }
+
+ngb-rating {
+    font-size:25px;
+    color:red;
+    background:transparent;
+  }
+
+  ::ng-deep.sr-only{
+    display: none;
+  }
