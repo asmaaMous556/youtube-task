@@ -17,12 +17,12 @@
     <div class="row">
       <div class="col-12">
         <div class="row my-3">
-          <div class="col-9">
+          <div class="col-6">
             <div class="fw-bold">
               {{ video[0]?.snippet.title | uppercase }}
             </div>
           </div>
-          <div class="col-3">
+          <div class="col-6">
             <div class="text-end">
               <button
                 class="details-btn btn btn-block btn btn-primary border-0"
@@ -34,17 +34,17 @@
           </div>
         </div>
         <div class="row border-top py-3">
-          <div class="col-4">
-            <div class="d-flex justify-content-center align-items-center">
-              <div class="fw-bold text-dark me-3">Rate</div>
+          <div class="col-6 col-md-4">
+            <div class="d-flex  align-items-center">
+              <div class="fw-bold text-dark">Rate</div>
               <ngb-rating [max]="5" [(rate)]="currentRate" (click)="getRate(currentRate)"[readonly]="false"></ngb-rating>
-             
+
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-6 col-md-4 ">
             <div class="text-center">Duration {{ duration * 1000 | date: "mm:ss" }}</div>
           </div>
-          <div class="col-4">
+          <div class=" col-6 col-md-4">
             <div
               class="d-flex justify-content-center align-items-center text-center">
               <div class="d-flex justify-content-center align-items-center">
