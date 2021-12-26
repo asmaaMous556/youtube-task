@@ -1,18 +1,16 @@
 <div class="container mt-5">
-  <div class="row">
-    <div class="col-9"></div>
-    <div class="col-3 my-3">
-      <div class="d-flex justify-content-end align-items-center">
-        <input type="search" class="form-control rounded-pill " id="search-input"
-          placeholder="Search channels by video title" 
-          [formControl]="value" autocomplete="off">
-      </div>
+  <nav class="navbar navbar-light bg-light">
+
+    <div class="col-12 col-md-3 offset-md-9">
+      <input type="search" class="form-control rounded-pill " id="search-input"
+        placeholder="Search channels by video title"
+        [formControl]="value" autocomplete="off">
     </div>
-  </div>
+  </nav>
+
   <div class="row">
     <div class="col-12">
-
-      <table class="table">
+      <table class="table responsive-table">
         <thead>
           <tr class="my-5">
             <th scope="col">#</th>
@@ -41,8 +39,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-6"></div>
-  <div class="col-6">
+  <div class="col-12 col-md-6 offset-md-6">
     <div class="">
       <ngb-pagination
       [(page)]="page"
