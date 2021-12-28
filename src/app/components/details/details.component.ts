@@ -1,13 +1,13 @@
-import { Route } from '@angular/compiler/src/core';
+
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { YoutubeService } from 'src/app/services/youtube.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { SaveVideoService } from 'src/app/services/save-video.service';
 import { Subscription } from 'rxjs';
-import {parse, end, toSeconds, pattern} from 'iso8601-duration';
+import {parse,toSeconds} from 'iso8601-duration';
 import {faStar}  from '@fortawesome/free-solid-svg-icons';
- 
+
 
 @Component({
   selector: 'app-details',
@@ -25,7 +25,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   faStar=faStar;
   checked:boolean=false;
   currentRate!:number;
-  
+
 
 
   constructor(private route: ActivatedRoute,
@@ -37,12 +37,12 @@ export class DetailsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    
+
     this.paramsSubscripe = this.route.params.subscribe(params => {
       this.id = params.id;
       this.VideoUrl = this.VideoUrl + this.id;
       this.safeUrl = this._sanitizer.bypassSecurityTrustResourceUrl(this.VideoUrl),
-      
+
 
       this.videoDetailsSub = this.youtubeService.getSingleVideo(this.id).subscribe((data: any) => {
         this.video = data.items
@@ -51,13 +51,13 @@ export class DetailsComponent implements OnInit, OnDestroy {
        console.log(error)
       })
     },error=>{console.log(error)});
-    
+
   }
 
   saveVideo(id: string) {
     this.savevideo.saveVideoToFvList(id);
   }
- 
+
  getRate(rate:any){
   console.log(rate);
   var rate =(rate).toString as any
