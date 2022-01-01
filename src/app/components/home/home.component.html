@@ -1,6 +1,17 @@
+ <div class="row">
+  <img src="../../../assets/icons/youtubeTask.png" alt="">
+ </div>
+
+<div class="row">
+  <div class="col-6">
+    <h2>
+      check out the latest trendy youtube videos!
+    </h2>
+  </div>
+</div>
+
 <div class="container mt-5">
   <nav class="navbar navbar-light bg-light">
-
     <div class="col-12 col-md-3 offset-md-9">
       <input type="search" class="form-control rounded-pill " id="search-input"
         placeholder="Search channels by video title"
@@ -35,16 +46,21 @@
           </tr>
         </tbody>
       </table>
+      <div class="row mt-3" *ngIf="!filteredItems.length">
+ <h4 class="d-flex justify-content-center align-items-center">
+  There's no results matched your search
+ </h4>
+      </div>
     </div>
   </div>
 </div>
-<div class="row">
+<div class="row" *ngIf="filteredItems.length">
   <div class="col-12 col-md-6 offset-md-6">
-    <div class="">
       <ngb-pagination
       [(page)]="page"
       [pageSize]="pageSize"
-      [collectionSize]="total"></ngb-pagination>
-    </div>
+
+      [collectionSize]="filteredItems.length"></ngb-pagination>
+
   </div>
 </div>

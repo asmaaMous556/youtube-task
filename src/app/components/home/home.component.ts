@@ -16,20 +16,19 @@ filteredItems:any[]=[];
 value= new FormControl ();
 page:number=1;
 pageSize:number=5;
-total:number=0;
+
 
   constructor(private youtube:YoutubeService) { }
 
   ngOnInit(): void {
     this.youtube.getAllVideos().subscribe(data=>{
     this.items=data.items;
-    this.total=this.items.length;
-      this.filteredItems=this.items
+     this.filteredItems=this.items
       this.filterVideo(this.items);
     },error=>{console.log(error)});
 
 
-    
+
   }
 
   filterVideo(items:item[]){
@@ -38,19 +37,19 @@ total:number=0;
         return this.filteredItems=items;
       }
       else{
-        
+
         return  this.filteredItems=items.filter(item=>{
           return (item.snippet.localized.title.toLocaleLowerCase().includes(value))
         })
       }
     })
-    
-  }
-     
-  
-  
 
-  
+  }
+
+
+
+
+
 
 }
 
